@@ -1,0 +1,12 @@
+{
+    "tasks": [
+        {
+            "name": "lebenslauf",
+            "duration": 120
+        },
+        {
+            "name": "aspirar",
+            "duration": 20
+        }
+    ]
+}
