@@ -111,7 +111,6 @@ class Cmd:
 
     def nothing(self):
         print("Unknown command. Use \"help\" to print known commands")
-        pass
 
     def help(self):
         for cmd, description in self.commands:
