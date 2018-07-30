@@ -55,7 +55,7 @@ class Cmd:
             print("No offers to mark completed.")
         else:
             self.list_offers()
-            ind = int(input("Competed: ")) -1
+            ind = int(input("Competed: ")) - 1
             if ind < 0 or ind >= len(self.offers):
                 print("No offer with index {}.".format(ind+1))
             else:
@@ -73,8 +73,8 @@ class Cmd:
         if not self.offers:
             print("No offers yet.")
         else:
-            l = len(self.offers)
-            zipped = zip(range(1, l+1), self.offers)
+            length = len(self.offers)
+            zipped = zip(range(1, length + 1), self.offers)
             print("\n".join(["{}: {}".format(i, t) for i, t in zipped]))
 
     def list_all(self):
@@ -100,10 +100,6 @@ class Cmd:
         if self.offers:
             self.unsaved_changes = True
         self.list_offers()
-
-    def start(self):
-        self.running = True
-        self.loop()
 
     def exit(self):
         self.tasklist.appends(self.offers)
