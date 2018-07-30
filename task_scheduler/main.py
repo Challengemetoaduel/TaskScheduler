@@ -1,7 +1,7 @@
 import re
 
-from Task import Task
-from Tasklist import Tasklist
+from task import Task
+from tasklist import Tasklist
 
 
 class Cmd:

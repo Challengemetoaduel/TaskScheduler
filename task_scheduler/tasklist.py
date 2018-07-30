@@ -1,6 +1,6 @@
 import json
 
-from Task import Task
+from task import Task
 
 
 class Tasklist(list):
