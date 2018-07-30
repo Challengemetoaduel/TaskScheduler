@@ -101,13 +101,9 @@ class Cmd:
             self.unsaved_changes = True
         self.list_offers()
 
-<<<<<<< HEAD
     def start(self):
         self.running = True
         self.loop()
-=======
-
->>>>>>> f2132d607266368b1b5df00129286ac17d4733f0
 
     def exit(self):
         self.tasklist.appends(self.offers)
