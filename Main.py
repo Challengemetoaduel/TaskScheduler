@@ -11,6 +11,19 @@ class Cmd:
         self.unsaved_changes = False
         self.offers = []
 
+        self.commands = \
+            [
+                ("help", "\t\tPrint this help."),
+                ("new", "\t\t\tCreate a new todo list."),
+                ("load", "\t\tLoad a saved todo list."),
+                ("add", "\t\t\tAdd a new task to the current todo list."),
+                ("la", "\t\t\tList all tasks in current list."),
+                ("calc", "\t\tCalculate all doable tasks."),
+                ("lo", "\t\t\tList calculated tasks."),
+                ("complete", "\tComplete a task from the calculated tasks."),
+                ("save", "\t\tSave all changes to the current list."),
+                ("exit", "\t\tClose task scheduler.")]
+
         self.cmd_dict = {
             "add": self.add,
             "exit": self.exit,
@@ -20,8 +33,13 @@ class Cmd:
             "la": self.list_all,
             "calc": self.calculate,
             "load": self.load,
-            "complete": self.complete
+            "complete": self.complete,
+            "help": self.help
         }
+
+    def start(self):
+        self.running = True
+        self.loop()
 
     def new(self):
         if self.unsaved_changes:
@@ -87,9 +105,6 @@ class Cmd:
         self.list_offers()
 
 
-    def start(self):
-        self.running = True
-        self.loop()
 
     def exit(self):
         self.tasklist.appends(self.offers)
@@ -100,7 +115,12 @@ class Cmd:
         self.running = False
 
     def nothing(self):
+        print("Unknown command. Use \"help\" to print known commands")
         pass
+
+    def help(self):
+        for cmd, description in self.commands:
+            print("{}{}".format(cmd, description))
 
     def loop(self):
         while self.running:
