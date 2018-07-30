@@ -43,8 +43,6 @@ class Cmd:
             else:
                 self.offers.pop(ind)
 
-
-
     def load(self):
         if self.unsaved_changes:
             save = self.prompt("Save unsaved changes? [Y/n]")
@@ -52,7 +50,6 @@ class Cmd:
                 self.save()
         filepath = input("Load from: ")
         self.tasklist = Tasklist.read(filepath)
-
 
     def list_offers(self):
         if not self.offers:
@@ -85,7 +82,6 @@ class Cmd:
         if self.offers:
             self.unsaved_changes = True
         self.list_offers()
-
 
     def start(self):
         self.running = True
@@ -136,7 +132,6 @@ class Cmd:
             multiplier = {"d": 24 * 60, "h": 60, "m": 1}[time_match.group("unit")]
             return cnt * multiplier
 
-
     def prompt(self, text):
         while True:
             answer = input(text).lower()
@@ -148,6 +143,7 @@ class Cmd:
     def save(self):
         self.tasklist.write()
         self.unsaved_changes = False
+
 
 if __name__ == '__main__':
     Cmd().start()
